@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--360浏览器优先以webkit内核解析-->
+
+    <title> - 控制台</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="/css/bootstrap-table.min.css" rel="stylesheet">
+
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row row-sm text-center">
+                        <div class="col-xs-6">
+                            <div class="panel padder-v item">
+                                <div class="h1 text-info font-thin h1">1383</div>
+                                <span class="text-muted text-xs">人才数量</span>
+                                <div class="top text-right w-full">
+                                    <i class="fa fa-caret-down text-warning m-r-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel padder-v item bg-info">
+                                <div class="h1 text-fff font-thin h1">59698</div>
+                                <span class="text-muted text-xs">发文数量</span>
+                                <div class="top text-right w-full">
+                                    <i class="fa fa-caret-down text-warning m-r-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel padder-v item bg-primary">
+                                <div class="h1 text-fff font-thin h1">211</div>
+                                <span class="text-muted text-xs">国家级项目</span>
+                                <div class="top text-right w-full">
+                                    <i class="fa fa-caret-down text-warning m-r-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel padder-v item">
+                                <div class="font-thin h1">#4</div>
+                                <span class="text-muted text-xs">综合排名</span>
+                                <div class="bottom text-left">
+                                    <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-5 col-sm-offset-1">
+                    <div>
+                        <div id="compRadar" style="width: 400px; height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-6" >
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title" style="border-bottom:none;background:#fff;">
+                            <h5>武大社科动态指数</h5>
+                        </div>
+                        <div class="ibox-content" style="border-top:none;">
+                            <div id="flot-line-chart-moving" style="height:217px;">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-5" style="padding-left:0;">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content" style="border-top:none;background-color:#e4eaec;">
+                            <h5>新增发文</h5>
+                            <div class="progress progress-striped active">
+                                <div style="width: 97%" aria-valuemax="100000" aria-valuemin="0" aria-valuenow="25120"
+                                     role="progressbar" class="progress-bar">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                            <h5>新增人才</h5>
+                            <div class="progress progress-striped active">
+                                <div style="width: 12%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="12"
+                                     role="progressbar" class="progress-bar progress-bar-warning">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                            <h5>新增项目</h5>
+                            <div class="progress progress-striped active">
+                                <div style="width: 53%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="68"
+                                     role="progressbar" class="progress-bar .progress-bar-danger">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                            <h5>新增经费</h5>
+                            <div class="progress progress-striped active">
+                                <div style="width: 41%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="75"
+                                     role="progressbar" class="progress-bar progress-bar-info">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <!-- 代办列表,暂时没用 --><!--
+                    <div class="ibox float-e-margins" >
+                        <div id="ibox-content">
+
+                            <div id="vertical-timeline" class="vertical-container light-timeline">
+                                <div class="vertical-timeline-block" >
+                                    <div class="vertical-timeline-icon navy-bg">
+                                        <i class="fa fa-briefcase"></i>
+                                    </div>
+
+                                    <div class="vertical-timeline-content" >
+                                        <h2>会议</h2>
+                                        <p>上一年的销售业绩发布会。总结产品营销和销售趋势及销售的现状。
+                                        </p>
+                                        <a href="#" class="btn btn-sm btn-primary"> 更多信息</a>
+                                        <span class="vertical-date">
+                                        今天 <br>
+                                         <small>2月3日</small>
+                                          </span>
+                                    </div>
+                                </div>
+
+                                <div class="vertical-timeline-block">
+                                    <div class="vertical-timeline-icon blue-bg">
+                                        <i class="fa fa-file-text"></i>
+                                    </div>
+
+                                    <div class="vertical-timeline-content">
+                                        <h2>给张三发送文档</h2>
+                                        <p>发送上年度《销售业绩报告》</p>
+                                        <a href="#" class="btn btn-sm btn-success"> 下载文档 </a>
+                                        <span class="vertical-date">
+                                    今天 <br>
+                                    <small>2月3日</small>
+                                </span>
+                                    </div>
+                                </div>
+
+                                <div class="vertical-timeline-block">
+                                    <div class="vertical-timeline-icon lazur-bg">
+                                        <i class="fa fa-coffee"></i>
+                                    </div>
+
+                                    <div class="vertical-timeline-content">
+                                        <h2>喝咖啡休息</h2>
+                                        <p>喝咖啡啦，啦啦啦~~</p>
+                                        <a href="#" class="btn btn-sm btn-info">更多</a>
+                                        <span class="vertical-date"> 昨天 <br><small>2月2日</small></span>
+                                    </div>
+                                </div>
+
+                                <div class="vertical-timeline-block">
+                                    <div class="vertical-timeline-icon yellow-bg">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+
+                                    <div class="vertical-timeline-content">
+                                        <h2>给李四打电话</h2>
+                                        <p>给李四打电话分配本月工作任务</p>
+                                        <span class="vertical-date">昨天 <br><small>2月2日</small></span>
+                                    </div>
+                                </div>
+
+                                <div class="vertical-timeline-block">
+                                    <div class="vertical-timeline-icon lazur-bg">
+                                        <i class="fa fa-user-md"></i>
+                                    </div>
+
+                                    <div class="vertical-timeline-content">
+                                        <h2>公司年会</h2>
+                                        <p>发年终奖啦，啦啦啦~~</p>
+                                        <span class="vertical-date">前天 <br><small>2月1日</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                <div class="col-sm-8">
+                    <div class="ibox" style="display: none">
+                        <div class="ibox-title">
+                            <h5>最新发文</h5>
+                            <div class="ibox-tools" style="display: none">
+                                <a href="#" class="btn btn-primary btn-xs">创建新项目</a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="row m-b-sm m-t-sm">
+                                <div class="col-md-1">
+                                    <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i
+                                            class="fa fa-refresh"></i> 刷新
+                                    </button>
+                                </div>
+                                <div class="col-md-11">
+                                    <div class="input-group">
+                                        <input type="text" placeholder="请输入论文名称" class="input-sm form-control"> <span
+                                            class="input-group-btn">
+                                                <button type="button"
+                                                        class="btn btn-sm btn-primary"> 搜索</button> </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-list">
+                                <table class="table table-hover" th:each="paper : ${paperList}">
+                                    <tbody>
+                                    <tr>
+                                        <td class="project-status">
+                                                    <span class="label label-primary">进行中
+                                                </span></td>
+                                        <td class="project-title">
+                                            <a href="project_detail.html" th:text="${paper.title}"></a>
+                                            <br>
+                                            <small th:text="${paper.firstAuthor}"></small>
+                                        </td>
+                                        <td class="project-completion">
+                                            <small>当前进度： 48%</small>
+                                            <div class="progress progress-mini">
+                                                <div style="width: 48%;" class="progress-bar"></div>
+                                            </div>
+                                        </td>
+                                        <td class="project-people">
+                                            <a href="projects.html"><img alt="image" class="img-circle"
+                                                                         src="/img/a3.jpg"></a>
+                                            <a href="projects.html"><img alt="image" class="img-circle"
+                                                                         src="/img/a1.jpg"></a>
+                                            <a href="projects.html"><img alt="image" class="img-circle"
+                                                                         src="/img/a2.jpg"></a>
+                                            <a href="projects.html"><img alt="image" class="img-circle"
+                                                                         src="/img/a4.jpg"></a>
+                                            <a href="projects.html"><img alt="image" class="img-circle"
+                                                                         src="/img/a5.jpg"></a>
+                                        </td>
+                                        <td class="project-actions">
+                                            <a href="projects.html#" class="btn btn-white btn-sm"><i
+                                                    class="fa fa-folder"></i> 查看 </a>
+                                            <a href="projects.html#" class="btn btn-white btn-sm"><i
+                                                    class="fa fa-pencil"></i> 编辑 </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- 全局js -->
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/plugins/layer/layer.min.js"></script>
+<script src="/js/bootstrap-table.min.js"></script>
+<script th:src="@{/js/echarts.min.js}"></script>
+<!-- Flot -->
+<script src="/js/plugins/flot/jquery.flot.js"></script>
+<script src="/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="/js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="/js/plugins/flot/jquery.flot.pie.js"></script>
+<!-- 自定义js -->
+<script src="/js/content.js"></script>
+<!--flotdemo-->
+<script type="text/javascript">
+    $(function () {
+        var container = $("#flot-line-chart-moving");
+        var maximum = container.outerWidth() / 2 || 300;
+        var data = [];
+
+        function getRandomData() {
+            if (data.length) {
+                data = data.slice(1);
+            }
+            while (data.length < maximum) {
+                var previous = data.length ? data[data.length - 1] : 50;
+                var y = previous + Math.random() * 10 - 5;
+                data.push(y < 0 ? 0 : y > 100 ? 100 : y);
+            }
+            var res = [];
+            for (var i = 0; i < data.length; ++i) {
+                res.push([i, data[i]])
+            }
+            return res;
+        }
+
+        series = [{
+            data: getRandomData(),
+            lines: {
+                fill: true
+            }
+        }];
+        var plot = $.plot(container, series, {
+            grid: {
+
+                color: "#999999",
+                tickColor: "#f7f9fb",
+                borderWidth: 0,
+                minBorderMargin: 20,
+                labelMargin: 10,
+                backgroundColor: {
+                    colors: ["#ffffff", "#ffffff"]
+                },
+                margin: {
+                    top: 8,
+                    bottom: 20,
+                    left: 20
+                },
+                markings: function (axes) {
+                    var markings = [];
+                    var xaxis = axes.xaxis;
+                    for (var x = Math.floor(xaxis.min); x < xaxis.max; x += xaxis.tickSize * 2) {
+                        markings.push({
+                            xaxis: {
+                                from: x,
+                                to: x + xaxis.tickSize
+                            },
+                            color: "#fff"
+                        });
+                    }
+                    return markings;
+                }
+            },
+            colors: ["#4fc5ea"],
+            xaxis: {
+                tickFormatter: function () {
+                    return "";
+                }
+            },
+            yaxis: {
+                min: 0,
+                max: 110
+            },
+            legend: {
+                show: true
+            }
+        });
+
+        // Update the random dataset at 25FPS for a smoothly-animating chart
+
+        setInterval(function updateRandom() {
+            series[0].data = getRandomData();
+            plot.setData(series);
+            plot.draw();
+        }, 40);
+    });
+    $(function () {
+        var oilprices = [
+            [1483225200000.00 ,61],
+            [1483311600000.00 ,58],
+            [1483398000000.00 ,57],
+            [1483484400000.00 ,56],
+            [1483743600000.00 ,56],
+            [1483830000000.00 ,56],
+            [1483916400000.00 ,54],
+            [1484002800000.00 ,52],
+            [1484089200000.00 ,53],
+            [1484348400000.00 ,53],
+            [1484434800000.00 ,51],
+            [1484521200000.00 ,52],
+            [1484607600000.00 ,50],
+            [1484694000000.00 ,52],
+            [1484953200000.00 ,51],
+            [1485039600000.00 ,55],
+            [1485126000000.00 ,55],
+            [1485212400000.00 ,54],
+            [1485298800000.00 ,55],
+            [1485558000000.00 ,54],
+            [1485644400000.00 ,57],
+            [1485730800000.00 ,58],
+            [1485817200000.00 ,58],
+            [1485903600000.00 ,59],
+            [1486162800000.00 ,59],
+            [1486249200000.00 ,59],
+            [1486335600000.00 ,58],
+            [1486422000000.00 ,60],
+            [1486508400000.00 ,60],
+            [1486767600000.00 ,58],
+            [1486854000000.00 ,59],
+            [1486940400000.00 ,58],
+            [1487026800000.00 ,58],
+            [1487113200000.00 ,59],
+            [1487372400000.00 ,59],
+            [1487458800000.00 ,58],
+            [1487545200000.00 ,60],
+            [1487631600000.00 ,61],
+            [1487977200000.00 ,61],
+            [1488063600000.00 ,61],
+            [1488150000000.00 ,62],
+            [1488236400000.00 ,62],
+            [1488322800000.00 ,60],
+            [1488668400000.00 ,61],
+            [1488754800000.00 ,62],
+            [1488841200000.00 ,60],
+            [1489186800000.00 ,59],
+            [1489273200000.00 ,58],
+            [1489359600000.00 ,58],
+            [1489446000000.00 ,58],
+            [1489532400000.00 ,57],
+            [1489791600000.00 ,57],
+            [1489878000000.00 ,60],
+            [1490050800000.00 ,62],
+            [1490137200000.00 ,62],
+            [1490392800000.00 ,63],
+            [1490479200000.00 ,63],
+            [1490565600000.00 ,64],
+            [1490652000000.00 ,66],
+            [1490738400000.00 ,66],
+            [1490997600000.00 ,65],
+            [1491170400000.00 ,64],
+            [1491256800000.00 ,64],
+            [1491343200000.00 ,64],
+            [1491602400000.00 ,62],
+            [1491688800000.00 ,62],
+            [1491775200000.00 ,62],
+            [1491861600000.00 ,64],
+            [1491948000000.00 ,64],
+            [1492207200000.00 ,64],
+            [1492293600000.00 ,63],
+            [1492380000000.00 ,63],
+            [1492466400000.00 ,62],
+            [1492552800000.00 ,63],
+            [1492812000000.00 ,65],
+            [1492984800000.00 ,66],
+            [1493071200000.00 ,65],
+            [1493157600000.00 ,66],
+            [1493416800000.00 ,64],
+            [1493589600000.00 ,64],
+            [1493676000000.00 ,63],
+            [1493762400000.00 ,62],
+            [1494021600000.00 ,61],
+            [1494108000000.00 ,62],
+            [1494280800000.00 ,62],
+            [1494367200000.00 ,62],
+            [1494626400000.00 ,62],
+            [1494712800000.00 ,63],
+            [1494799200000.00 ,63],
+            [1494885600000.00 ,65],
+            [1495231200000.00 ,66],
+            [1495317600000.00 ,66],
+            [1495404000000.00 ,66],
+            [1495490400000.00 ,64],
+            [1495576800000.00 ,65],
+            [1495922400000.00 ,63],
+            [1496008800000.00 ,63],
+            [1496095200000.00 ,65],
+            [1496440800000.00 ,66],
+            [1496527200000.00 ,66],
+            [1496700000000.00 ,67],
+            [1496786400000.00 ,66],
+            [1497132000000.00 ,65],
+            [1497218400000.00 ,66],
+            [1497391200000.00 ,68],
+            [1497650400000.00 ,69],
+            [1497736800000.00 ,69],
+            [1497823200000.00 ,68],
+            [1497909600000.00 ,68],
+            [1497996000000.00 ,69],
+            [1498255200000.00 ,68],
+            [1498341600000.00 ,68],
+            [1498428000000.00 ,69],
+            [1498514400000.00 ,70],
+            [1498600800000.00 ,71],
+            [1498860000000.00 ,71],
+            [1498946400000.00 ,71],
+            [1499119200000.00 ,72],
+            [1499205600000.00 ,73],
+            [1499464800000.00 ,72],
+            [1499551200000.00 ,73],
+            [1499724000000.00 ,73],
+            [1499810400000.00 ,74],
+            [1500156000000.00 ,75],
+            [1500328800000.00 ,76],
+            [1500415200000.00 ,76],
+            [1500674400000.00 ,75],
+            [1500760800000.00 ,74],
+            [1500847200000.00 ,76],
+            [1500933600000.00 ,75],
+            [1501020000000.00 ,77],
+            [1501365600000.00 ,78],
+            [1501452000000.00 ,77],
+            [1501538400000.00 ,77],
+            [1501624800000.00 ,76],
+            [1501970400000.00 ,72],
+            [1502229600000.00 ,71],
+            [1502488800000.00 ,72],
+            [1502575200000.00 ,71],
+            [1502834400000.00 ,72],
+            [1503093600000.00 ,71],
+            [1503180000000.00 ,69],
+            [1503266400000.00 ,69],
+            [1503352800000.00 ,70],
+            [1503439200000.00 ,71],
+            [1503698400000.00 ,72],
+            [1503871200000.00 ,73],
+            [1504044000000.00 ,74],
+            [1504389600000.00 ,76],
+            [1504648800000.00 ,77],
+            [1504994400000.00 ,78],
+            [1505080800000.00 ,80],
+            [1505167200000.00 ,80],
+            [1505253600000.00 ,79],
+            [1505512800000.00 ,81],
+            [1505599200000.00 ,82],
+            [1505772000000.00 ,83],
+            [1505858400000.00 ,82],
+            [1506117600000.00 ,81],
+            [1506204000000.00 ,80],
+            [1506290400000.00 ,80],
+            [1506376800000.00 ,83],
+            [1506463200000.00 ,82],
+            [1506722400000.00 ,80],
+            [1506808800000.00 ,80],
+            [1506895200000.00 ,80],
+            [1506981600000.00 ,81],
+            [1507068000000.00 ,81],
+            [1507327200000.00 ,79],
+            [1507413600000.00 ,80],
+            [1507500000000.00 ,80],
+            [1507586400000.00 ,83],
+            [1507672800000.00 ,84],
+            [1507932000000.00 ,86],
+            [1508018400000.00 ,88],
+            [1508104800000.00 ,87],
+            [1508191200000.00 ,89],
+            [1508277600000.00 ,89],
+            [1508536800000.00 ,88],
+            [1508623200000.00 ,88],
+            [1508709600000.00 ,87],
+            [1508796000000.00 ,92],
+            [1509145200000.00 ,94],
+            [1509231600000.00 ,95],
+            [1509404400000.00 ,96],
+            [1509750000000.00 ,94],
+            [1509836400000.00 ,96],
+            [1510009200000.00 ,95],
+            [1510095600000.00 ,96],
+            [1510614000000.00 ,93],
+            [1510700400000.00 ,95],
+            [1510959600000.00 ,95],
+            [1511046000000.00 ,95],
+            [1511564400000.00 ,98],
+            [1511650800000.00 ,94],
+            [1511737200000.00 ,91],
+            [1511823600000.00 ,91],
+            [1511910000000.00 ,89],
+            [1512169200000.00 ,88],
+            [1512342000000.00 ,90],
+            [1512514800000.00 ,88],
+            [1512774000000.00 ,88],
+            [1512860400000.00 ,90],
+            [1512946800000.00 ,92],
+            [1513119600000.00 ,91],
+            [1513378800000.00 ,91],
+            [1513465200000.00 ,90],
+            [1513551600000.00 ,91],
+            [1513638000000.00 ,91],
+            [1513724400000.00 ,90],
+            [1514242800000.00 ,97],
+            [1514329200000.00 ,96],
+            [1514674800000.00 ,100],
+            [1514847600000.00 ,99],
+            [1514934000000.00 ,95],
+            [1515193200000.00 ,96],
+            [1515366000000.00 ,96],
+            [1515884400000.00 ,92],
+            [1515970800000.00 ,91],
+            [1516057200000.00 ,90],
+            [1516143600000.00 ,91],
+            [1516489200000.00 ,89],
+            [1516575600000.00 ,87],
+            [1516662000000.00 ,90],
+            [1517007600000.00 ,91],
+            [1517094000000.00 ,92],
+            [1517180400000.00 ,92],
+            [1517266800000.00 ,92],
+            [1517612400000.00 ,90],
+            [1517698800000.00 ,88],
+            [1517785200000.00 ,87],
+            [1517871600000.00 ,88],
+            [1517958000000.00 ,92],
+            [1518303600000.00 ,93],
+            [1518390000000.00 ,93],
+            [1518476400000.00 ,95],
+            [1518562800000.00 ,95],
+            [1518822000000.00 ,102],
+            [1518994800000.00 ,99],
+            [1519426800000.00 ,101],
+            [1519599600000.00 ,100],
+            [1519686000000.00 ,103],
+            [1519772400000.00 ,102],
+            [1520031600000.00 ,100],
+            [1520118000000.00 ,100],
+            [1520204400000.00 ,105],
+            [1520290800000.00 ,105],
+            [1520377200000.00 ,105],
+            [1520636400000.00 ,109],
+            [1520809200000.00 ,110],
+            [1520895600000.00 ,110],
+            [1520982000000.00 ,110],
+            [1521241200000.00 ,106],
+            [1521500400000.00 ,102],
+            [1521846000000.00 ,101],
+            [1521932400000.00 ,101],
+            [1522018800000.00 ,106],
+            [1522105200000.00 ,108],
+            [1522191600000.00 ,106],
+            [1522447200000.00 ,102],
+            [1522533600000.00 ,101],
+            [1522706400000.00 ,104],
+            [1522792800000.00 ,106],
+            [1523138400000.00 ,109],
+            [1523311200000.00 ,110],
+            [1523397600000.00 ,110],
+            [1523743200000.00 ,114],
+            [1523829600000.00 ,115],
+            [1523916000000.00 ,115],
+            [1524261600000.00 ,117],
+            [1524348000000.00 ,118],
+            [1524520800000.00 ,116],
+            [1524607200000.00 ,119],
+            [1524866400000.00 ,119],
+            [1524952800000.00 ,113],
+            [1525125600000.00 ,113],
+            [1525557600000.00 ,122],
+            [1525644000000.00 ,124],
+            [1525730400000.00 ,124],
+            [1526076000000.00 ,124],
+            [1526162400000.00 ,126],
+            [1526248800000.00 ,126],
+            [1526680800000.00 ,127],
+            [1526853600000.00 ,129],
+            [1527026400000.00 ,132],
+            [1527372000000.00 ,129],
+            [1527890400000.00 ,128],
+            [1528236000000.00 ,139],
+            [1528495200000.00 ,137],
+            [1528668000000.00 ,136],
+            [1528840800000.00 ,135],
+            [1529186400000.00 ,134],
+            [1529272800000.00 ,137],
+            [1529445600000.00 ,136],
+            [1529704800000.00 ,135],
+            [1529791200000.00 ,135],
+            [1529877600000.00 ,135],
+            [1529964000000.00 ,140],
+            [1530050400000.00 ,140],
+            [1530309600000.00 ,140],
+            [1530396000000.00 ,141],
+            [1530482400000.00 ,144],
+            [1530568800000.00 ,145],
+            [1530914400000.00 ,141],
+            [1531000800000.00 ,136],
+            [1531260000000.00 ,146],
+            [1531519200000.00 ,145],
+            [1531605600000.00 ,139],
+            [1531692000000.00 ,135],
+            [1531778400000.00 ,129],
+            [1531864800000.00 ,131],
+            [1532210400000.00 ,128],
+            [1532383200000.00 ,128],
+            [1532815200000.00 ,122],
+            [1532988000000.00 ,124],
+            [1533074400000.00 ,125],
+            [1533333600000.00 ,121],
+            [1533420000000.00 ,119],
+            [1533506400000.00 ,119],
+            [1533592800000.00 ,120],
+            [1533938400000.00 ,114],
+            [1534024800000.00 ,113],
+            [1534111200000.00 ,116],
+            [1534284000000.00 ,114],
+            [1534543200000.00 ,113],
+            [1534629600000.00 ,115],
+            [1534802400000.00 ,115],
+            [1534888800000.00 ,115],
+            [1535234400000.00 ,116],
+            [1535320800000.00 ,118],
+            [1535407200000.00 ,116],
+            [1535493600000.00 ,115],
+            [1535839200000.00 ,110],
+            [1535925600000.00 ,109],
+            [1536098400000.00 ,106],
+            [1536357600000.00 ,106]
+        ];
+        var exchangerates = [
+            [1483225200000.00 ,30],
+            [1483484400000.00 ,22],
+            [1483916400000.00 ,34],
+            [1484348400000.00 ,21],
+            [1484607600000.00 ,24],
+            [1485039600000.00 ,15],
+            [1485298800000.00 ,35],
+            [1485730800000.00 ,24],
+            [1486162800000.00 ,24],
+            [1486422000000.00 ,22],
+            [1486854000000.00 ,20],
+            [1487113200000.00 ,27],
+            [1487977200000.00 ,22],
+            [1488236400000.00 ,40],
+            [1488754800000.00 ,41],
+            [1489273200000.00 ,35],
+            [1489532400000.00 ,19],
+            [1490050800000.00 ,26],
+            [1490479200000.00 ,36],
+            [1490738400000.00 ,27],
+            [1491256800000.00 ,28],
+            [1491688800000.00 ,39],
+            [1491948000000.00 ,43],
+            [1492380000000.00 ,40],
+            [1492812000000.00 ,33],
+            [1493157600000.00 ,37],
+            [1493676000000.00 ,24],
+            [1494108000000.00 ,35],
+            [1494626400000.00 ,26],
+            [1494885600000.00 ,34],
+            [1495404000000.00 ,46],
+            [1495922400000.00 ,32],
+            [1496440800000.00 ,43],
+            [1496786400000.00 ,41],
+            [1497391200000.00 ,35],
+            [1497823200000.00 ,29],
+            [1498255200000.00 ,38],
+            [1498514400000.00 ,34],
+            [1498946400000.00 ,47],
+            [1499464800000.00 ,38],
+            [1499810400000.00 ,35],
+            [1500415200000.00 ,36],
+            [1500847200000.00 ,48],
+            [1501365600000.00 ,41],
+            [1501624800000.00 ,51],
+            [1502488800000.00 ,49],
+            [1503093600000.00 ,45],
+            [1503352800000.00 ,30],
+            [1503871200000.00 ,52],
+            [1504648800000.00 ,42],
+            [1505167200000.00 ,42],
+            [1505599200000.00 ,56],
+            [1506117600000.00 ,58],
+            [1506376800000.00 ,49],
+            [1506808800000.00 ,57],
+            [1507068000000.00 ,57],
+            [1507500000000.00 ,45],
+            [1507932000000.00 ,55],
+            [1508191200000.00 ,61],
+            [1508623200000.00 ,64],
+            [1509145200000.00 ,58],
+            [1509750000000.00 ,73],
+            [1510095600000.00 ,75],
+            [1510959600000.00 ,73],
+            [1511650800000.00 ,74],
+            [1511910000000.00 ,53],
+            [1512514800000.00 ,54],
+            [1512946800000.00 ,64],
+            [1513465200000.00 ,53],
+            [1513724400000.00 ,57],
+            [1514674800000.00 ,61],
+            [1515193200000.00 ,76],
+            [1515970800000.00 ,51],
+            [1516489200000.00 ,58],
+            [1517007600000.00 ,52],
+            [1517266800000.00 ,55],
+            [1517785200000.00 ,67],
+            [1518303600000.00 ,64],
+            [1518562800000.00 ,64],
+            [1519426800000.00 ,71],
+            [1519772400000.00 ,68],
+            [1520204400000.00 ,84],
+            [1520636400000.00 ,88],
+            [1520982000000.00 ,86],
+            [1521846000000.00 ,69],
+            [1522105200000.00 ,70],
+            [1522533600000.00 ,79],
+            [1523138400000.00 ,78],
+            [1523743200000.00 ,76],
+            [1524261600000.00 ,79],
+            [1524607200000.00 ,79],
+            [1525125600000.00 ,85],
+            [1525730400000.00 ,84],
+            [1526248800000.00 ,67],
+            [1527026400000.00 ,93],
+            [1528236000000.00 ,78],
+            [1528840800000.00 ,67],
+            [1529445600000.00 ,76],
+            [1529877600000.00 ,76],
+            [1530309600000.00 ,78],
+            [1530568800000.00 ,65],
+            [1531260000000.00 ,72],
+            [1531864800000.00 ,56],
+            [1532815200000.00 ,87],
+            [1533333600000.00 ,54],
+            [1533592800000.00 ,56],
+            [1534111200000.00 ,89],
+            [1534629600000.00 ,65],
+            [1535234400000.00 ,85],
+            [1535493600000.00 ,80],
+            [1536357600000.00 ,67]
+        ];
+
+        function euroFormatter(v, axis) {
+            return "&yen;" + v.toFixed(axis.tickDecimals);
+        }
+
+    });
+
+    $(function () {
+        var comRadar = echarts.init(document.getElementById("compRadar"));
+        var compData = getRadarData();
+        // console.log(compData);
+        setCompRadar(comRadar, compData);
+    });
+
+    function getRadarData(){
+        var compRtn;
+        $.ajax({
+            url: "/college/restlist",
+            method: "post",
+            dataType: "json",
+            data: "#",
+            async:false,
+            success: function (rtn) {
+                if(rtn){
+                    // console.log(rtn);
+                    compRtn = rtn;
+                }
+                else{
+                    compRtn = [];
+                }
+            }
+        });
+        return compRtn;
+    }
+
+    function setCompRadar(echartObj, allData) {
+        // 把选中的数据转化为value list + name的数组类型
+        var compareList = [];
+        var collegeNameList = [];
+        var showJsonArray = [];
+        var value_array = [];
+        var cnt = 0
+        for(keys in allData){
+            collegeNameList.push(allData[keys].collegeName);
+            compareList.push(allData[keys].approvedBudget);
+            compareList.push(allData[keys].projectNum);
+            compareList.push(allData[keys].paperNum);
+            compareList.push(allData[keys].cssciNum);
+            compareList.push(allData[keys].professionalProfessorNum);
+            compareList.push(allData[keys].professorNum);
+            var temp_arr = {
+                "name": allData[keys].collegeName,
+                "value":compareList
+            };
+            showJsonArray.push(temp_arr);
+            value_array.push(compareList);
+            compareList = [];
+            cnt++;
+        }
+        // end of this part
+
+        // value list转置，方便找最大值
+        var val_list1 = [];
+        var val_list2 = [];
+        var val_list3 = [];
+        var val_list4 = [];
+        var val_list5 = [];
+        var val_list6 = [];
+
+        for(i=0;i<cnt;i++){
+            val_list1.push(value_array[i][0]);
+            val_list2.push(value_array[i][1]);
+            val_list3.push(value_array[i][2]);
+            val_list4.push(value_array[i][3]);
+            val_list5.push(value_array[i][4]);
+            val_list6.push(value_array[i][5]);
+        }
+        max_1 = Math.max(val_list1);
+        max_2 = Math.max(val_list2);
+        max_3 = Math.max(val_list3);
+        max_4 = Math.max(val_list4);
+        max_5 = Math.max(val_list5);
+        max_6 = Math.max(val_list6);
+
+        var option = {
+            title: {
+                text: ''
+            },
+            tooltip: {},
+            // legend: {
+            //     data: collegeNameList
+            // },
+            radar: {
+                shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [
+                    { name: '项目经费（万元）', max: max_1},
+                    { name: '项目数量', max: max_2},
+                    { name: '发文数', max: max_3},
+                    { name: 'CSSCI论文数', max: max_4},
+                    { name: '教授人数', max: max_5},
+                    { name: '教职工数', max: max_6}
+                ]
+            },
+            series: [{
+                name: '指标对比',
+                type: 'radar',
+                radius: '55%',
+                center: ['50%', '50%'],
+                //areaStyle: {normal: {}},
+                data : showJsonArray
+            }]
+        };
+
+        echartObj.setOption(option);
+    }
+</script>
+</body>
+
+</html>

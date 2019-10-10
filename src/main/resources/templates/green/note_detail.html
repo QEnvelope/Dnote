@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/button.css">
+
+
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="content-wrapper" style="min-height: -webkit-fill-available; ">
+        <div id="noteId" style="display: none" th:text="${noteDetail.id}"></div>
+        <!-- Jumbtron / Slider -->
+        <div class="jumbotron-wrap" style="top: 0; height: 200px">
+            <div class="container-fluid" style="height: inherit;">
+                <div class="jumbotron static-slider" style="padding-bottom: 12px">
+                    <h1 class="text-center" th:text="${noteDetail.title}"></h1>
+                    <p class="lead text-center" style="font-size: large; font-weight: bold" th:text="${noteDetail.authorName}"></p>
+                    <p style="font-size: small; text-align: right">创建时间： <span th:text="${noteDetail.createTime}"></span></p>
+                    <p style="font-size: small; text-align: right">上次更新时间： <span th:text="${noteDetail.updateTime}"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div style="top: 200px; bottom: 60px; width: 100%; position: absolute; ">
+            <!-- Main content area -->
+            <main class="container-fluid" style="height: -webkit-fill-available">
+                <div class="row" style="height: inherit">
+
+                    <!-- Main content -->
+                    <div class="col">
+                        <article >
+                            <p style="font-size: medium;"><span th:text="${noteDetail.content}"></span></p>
+                        </article>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="custom" style="margin: 2px auto;text-align: center;bottom: 0;position: absolute;width: 100%; background-color: white; height: 60px; ">
+            <div class="btn">
+<!--                <input id="btnDraft" type="button" class="update"-->
+<!--                       value="更新" title="更新">-->
+                <input id="btnCancel" type="button" class="delete"
+                       title="删除" value="删除" >
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+<!-- Bootcamp JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/edit/write.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="" />
+<link href="css/register/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/register/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" href="css/blog.css">
+
+</head>
+<body>
+	<div class="signupform" style="margin-top: 50px">
+		<div class="container">
+
+			<div class="agile_info">
+				<div class="w3l_form">
+					<div class="left_grid_info">
+						<h3>Welcome !</h3>
+						<h4>Dnote</h4>
+						<p>属于你自己的云笔记</p>
+					</div>
+				</div>
+				<div class="w3_info">
+					<h2>Create An Account</h2>
+					<form th:action="@{/register}"  method="post">
+						<div class="input-group">
+							<span><i class="fa fa-user" aria-hidden="true"></i></span>
+							<input type="text" id="username" name="username" maxlength="50" placeholder="用户名">
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-user" aria-hidden="true"></i></span>
+							<input type="password" id="password" name="password" maxlength="30" placeholder="密码" >
+						</div>
+						<button class="btn btn-danger btn-block" type="submit">提交</button >
+					</form>
+					<div class=" col-md-5" th:if="${registerError}">
+						<p class="blog-label-error" th:text="${errorMsg}"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

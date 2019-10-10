@@ -1,0 +1,6 @@
+.csdn-toolbar .container {
+    max-width: unset;
+}
+.csdn-toolbar .container.row {
+    display: block;
+}
